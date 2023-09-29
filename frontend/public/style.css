@@ -1,0 +1,97 @@
+:root {
+  --color-dark: #032f41;
+  --color-dark-light: #176B87;
+  --color-light-dark: #9be5e1;
+  --color-light: #EEEEEE;
+  --color-del-button: rgb(245, 30, 30);
+  --color-del-button-hover: rgb(185, 29, 29);
+  --color-main-button: var(--color-light-dark);
+  --color-main-button-hover: var(--color-dark-light);
+}
+
+.username-navbar {
+  color: var(--color-light)
+}
+
+.hand-pointer {
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+#list-title {
+  background-color: inherit!important;
+  outline: none;
+  line-height: normal;
+}
+
+.item-checkbox:checked {
+  background-color: inherit;
+  border-color: var(--color-light)
+}
+.item-checkbox:focus {
+  border-color: var(--color-light-dark);
+  box-shadow: 0 0 0 0.15rem var(--color-light-dark);
+}
+
+.item-unchecked {
+  background-color: var(--color-light-dark)!important;
+  border: 1px solid var(--color-dark-light);
+}
+.item-checked {
+  background-color: inherit!important;
+  border: 1px solid var(--color-light);
+  color: var(--color-dark-light);
+  text-decoration: line-through;
+}
+
+.new-item, .new-item:focus {
+  /* background-color: var(--color-light); */
+  color: var(--color-dark)
+}
+.new-item:focus {
+  border-color: var(--color-light-dark);
+  box-shadow: 0 0 0 0.15rem var(--color-light-dark);
+}
+
+.btn-main {
+  background-color: var(--color-main-button);
+  border-color: var(--color-main-button-hover);
+  color: var(--color-dark);
+}
+.btn-main:hover {
+  background-color: var(--color-main-button-hover);
+  border-color: var(--color-main-button-hover);
+  color: var(--color-light);
+}
+
+.btn-list {
+  border-color: var(--color-main-button-hover);
+  color: var(--color-dark);
+}
+.btn-list:hover, .btn-list-active {
+  background-color: var(--color-main-button-hover);
+  border-color: var(--color-main-button-hover);
+  color: var(--color-light);
+}
+
+.btn-del {
+  background-color: var(--color-del-button);
+  border-color: var(--color-del-button-hover);
+  color: var(--color-light);
+}
+.btn-del:hover {
+  background-color: var(--color-del-button-hover);
+  border-color: var(--color-del-button-hover);
+  color: var(--color-light);
+}
+
