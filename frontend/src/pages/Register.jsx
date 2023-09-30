@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useRegister } from "../hooks/useRegister.js"
+import { useRegister } from "../hooks/useRegister.jsx"
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -42,7 +42,8 @@ const Register = () => {
         </div>
 
         <button type="submit" disabled={isLoading} className="btn btn-main w-100 py-2 mt-3">Register</button>
-        {error && <div className="error">{error}</div>}
+        {isLoading && <div>Registration could take a couple of minutes the first time</div>}
+        {error && <div className="text-danger">{error}</div>}
       </form>
     </div>
   )

@@ -1,4 +1,4 @@
-import { AllListsContext } from "../../context/AllListsContext.js"
+import { AllListsContext } from "../../context/AllListsContext.jsx"
 import { useContext } from "react"
 
 export const useAllListsContext = () => {

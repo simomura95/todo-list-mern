@@ -1,6 +1,6 @@
 # To-do list app built with MERN stack
 
-(NB. the backend is on stand-by until a request is done to it, so the website could take some minutes to load the first time)
+(NB. the backend spins down until a request is done to it, so the website could take a couple of minutes to login/register the first time)
 
 After authentication, the user can add unlimited lists and items. All texts can be edited, removed or checked as done.
 

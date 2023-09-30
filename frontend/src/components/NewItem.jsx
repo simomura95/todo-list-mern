@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { useCurrListContext } from "../hooks/contextsHooks/useCurrListContext.js"
-import { useAuthContext } from "../hooks/contextsHooks/useAuthContext.js"
+import { useCurrListContext } from "../hooks/contextsHooks/useCurrListContext.jsx"
+import { useAuthContext } from "../hooks/contextsHooks/useAuthContext.jsx"
 
 export default function NewItem() {
   const { _id, dispatch} = useCurrListContext()
@@ -14,7 +14,7 @@ export default function NewItem() {
       setsubmitError("Please type something")
       return
     }
-    const response = await fetch(`/api/todo/${_id}`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo/${_id}`, {
       method: 'POST',
       body: JSON.stringify({newTodo}),
       headers: {

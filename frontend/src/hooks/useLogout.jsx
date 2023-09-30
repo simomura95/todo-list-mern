@@ -1,6 +1,6 @@
-import { useAuthContext } from "./contextsHooks/useAuthContext.js"
-import { useCurrListContext } from "./contextsHooks/useCurrListContext.js"
-import { useAllListsContext } from "./contextsHooks/useAllListsContext.js"
+import { useAuthContext } from "./contextsHooks/useAuthContext.jsx"
+import { useCurrListContext } from "./contextsHooks/useCurrListContext.jsx"
+import { useAllListsContext } from "./contextsHooks/useAllListsContext.jsx"
 
 export const useLogout = () => {
   const { dispatch } = useAuthContext()

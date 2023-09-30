@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import {useAuthContext} from '../hooks/contextsHooks/useAuthContext'
-import { useAllListsContext} from '../hooks/contextsHooks/useAllListsContext'
-import {useCurrListContext} from '../hooks/contextsHooks/useCurrListContext'
+import {useAuthContext} from '../hooks/contextsHooks/useAuthContext.jsx'
+import { useAllListsContext} from '../hooks/contextsHooks/useAllListsContext.jsx'
+import {useCurrListContext} from '../hooks/contextsHooks/useCurrListContext.jsx'
 
 const ListPanel = () => {
   const { user } = useAuthContext()
@@ -19,7 +19,7 @@ const ListPanel = () => {
   // eslint-disable-next-line
   useEffect(() => {
     async function findAllLists() {
-      const response = await fetch('/api/todo', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const ListPanel = () => {
 
   async function addNewList() {
     const newListTitle = 'New list'
-    const response = await fetch('/api/todo', {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo`, {
       method: 'POST',
       body: JSON.stringify({newListTitle}),
       headers: {

@@ -1,4 +1,4 @@
-import { CurrListContext } from "../../context/CurrListContext.js"
+import { CurrListContext } from "../../context/CurrListContext.jsx"
 import { useContext } from "react"
 
 export const useCurrListContext = () => {

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useLogin } from "../hooks/useLogin.js"
+import { useLogin } from "../hooks/useLogin.jsx"
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -41,7 +41,8 @@ const Login = () => {
         </div>
 
         <button type="submit" disabled={isLoading} className="btn btn-main w-100 py-2 mt-3">Log in</button>
-        {error && <div className="error">{error}</div>}
+        {isLoading && <div>Login could take a couple of minutes the first time</div>}
+        {error && <div className="text-danger">{error}</div>}
       </form>
     </div>
   )

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 
 import NewItem from "./NewItem"
 import TodoItem from "./TodoItem";
-import { useAuthContext } from "../hooks/contextsHooks/useAuthContext.js"
-import { useCurrListContext } from "../hooks/contextsHooks/useCurrListContext.js"
-import { useAllListsContext } from "../hooks/contextsHooks/useAllListsContext.js"
+import { useAuthContext } from "../hooks/contextsHooks/useAuthContext.jsx"
+import { useCurrListContext } from "../hooks/contextsHooks/useCurrListContext.jsx"
+import { useAllListsContext } from "../hooks/contextsHooks/useAllListsContext.jsx"
 
 export default function TodoList () {
   const { user } = useAuthContext()
@@ -19,7 +19,7 @@ export default function TodoList () {
 
   async function handleEdit() {
     setError("");
-    const response = await fetch(`/api/todo/${_id}`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo/${_id}`, {
       method: 'PATCH',
       body: JSON.stringify({newText: title}),
       headers: {
@@ -40,7 +40,7 @@ export default function TodoList () {
   }
 
   async function handleDelete() {
-    const response = await fetch(`/api/todo/${_id}`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo/${_id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useAuthContext } from './hooks/contextsHooks/useAuthContext.js';
+import { useAuthContext } from './hooks/contextsHooks/useAuthContext.jsx';
 
-import NotFound from "./pages/NotFound"
-import HomeAuth from "./pages/HomeAuth"
-import HomeNoAuth from "./pages/HomeNoAuth"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
+import NotFound from "./pages/NotFound.jsx"
+import HomeAuth from "./pages/HomeAuth.jsx"
+import HomeNoAuth from "./pages/HomeNoAuth.jsx"
+import Login from "./pages/Login.jsx"
+import Register from "./pages/Register.jsx"
 import Navbar from './components/Navbar.jsx'
 
 export default function App() {

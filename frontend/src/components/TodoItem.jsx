@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
-import { useCurrListContext } from "../hooks/contextsHooks/useCurrListContext.js"
-import { useAuthContext } from "../hooks/contextsHooks/useAuthContext.js"
+import { useCurrListContext } from "../hooks/contextsHooks/useCurrListContext.jsx"
+import { useAuthContext } from "../hooks/contextsHooks/useAuthContext.jsx"
 
 export default function TodoItem(props) {
   const { _id: listId, dispatch } = useCurrListContext()
@@ -13,7 +13,7 @@ export default function TodoItem(props) {
   }, [props.text])
 
   async function handleEdit() {
-    const response = await fetch(`/api/todo/${listId}/${props._id}`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo/${listId}/${props._id}`, {
       method: 'PATCH',
       body: JSON.stringify({newText: text}),
       headers: {
@@ -32,7 +32,7 @@ export default function TodoItem(props) {
   }
 
   async function handleCheck() {
-    const response = await fetch(`/api/todo/${listId}/${props._id}/check`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo/${listId}/${props._id}/check`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export default function TodoItem(props) {
   }
 
   async function handleDelete() {
-    const response = await fetch(`/api/todo/${listId}/${props._id}`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo/${listId}/${props._id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

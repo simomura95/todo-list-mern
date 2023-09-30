@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { useAuthContext } from "./contextsHooks/useAuthContext.js";
+import { useAuthContext } from "./contextsHooks/useAuthContext.jsx";
 
-export const useLogin = () => {
+export const useRegister = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
   const {dispatch} = useAuthContext()
 
-  const login = async(username, password) => {
+  const register = async(username, password) => {
     setIsLoading(true)
     setError(null)
 
-    const response = await fetch(`/api/user/login`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/register`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({username, password})
@@ -31,6 +31,6 @@ export const useLogin = () => {
       setIsLoading(false)
     }
   }
-
-  return { login, isLoading, error }
+  
+  return { register, isLoading, error }
 }
