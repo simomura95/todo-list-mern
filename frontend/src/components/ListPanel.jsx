@@ -88,7 +88,7 @@ const ListPanel = () => {
     <div>
       {isLoading && <span>Loading lists could take a couple of minutes the first time</span>}
       {allLists && <div className="d-flex flex-wrap gap-1 mb-2">{allLists.map(listEntry)}
-        <button className="btn btn-main fw-bold" onClick={addNewList}>Add list</button>
+        <button className="btn btn-main fw-bold" onClick={addNewList} disabled={isLoading}>Add list</button>
       </div>}
     </div>
   )
