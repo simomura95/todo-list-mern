@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {useAuthContext} from '../hooks/contextsHooks/useAuthContext.jsx'
 import { useAllListsContext} from '../hooks/contextsHooks/useAllListsContext.jsx'
 import {useCurrListContext} from '../hooks/contextsHooks/useCurrListContext.jsx'
@@ -7,6 +7,7 @@ const ListPanel = () => {
   const { user } = useAuthContext()
   const { allLists, dispatch } = useAllListsContext()
   const { _id: currList_id, title, items, dispatch: currlistDispatch} = useCurrListContext()
+  const [isLoading, setIsLoading] = useState(false)
 
   // eslint-disable-next-line
   useEffect(() => {
@@ -19,6 +20,7 @@ const ListPanel = () => {
   // eslint-disable-next-line
   useEffect(() => {
     async function findAllLists() {
+      setIsLoading(true)
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo`, {
         method: 'GET',
         headers: {
@@ -29,6 +31,7 @@ const ListPanel = () => {
       const json = await response.json()
   
       if (!response.ok) {
+        setIsLoading(false)
         console.log(json.error)
       }
       if (response.ok) {
@@ -36,6 +39,7 @@ const ListPanel = () => {
         if (json.length > 0) {
           currlistDispatch({type: 'SET_LIST', payload: json[json.length-1]})
         }
+        setIsLoading(false)
       }
     }
   
@@ -81,8 +85,11 @@ const ListPanel = () => {
   }
 
   return (
-      allLists && <div className="d-flex flex-wrap gap-1 mb-2">{allLists.map(listEntry)}
-      <button className="btn btn-main fw-bold" onClick={addNewList}>Add list</button>
+    <div>
+      {isLoading && <span>Loading lists could take a couple of minutes the first time</span>}
+      {allLists && <div className="d-flex flex-wrap gap-1 mb-2">{allLists.map(listEntry)}
+        <button className="btn btn-main fw-bold" onClick={addNewList}>Add list</button>
+      </div>}
     </div>
   )
 }

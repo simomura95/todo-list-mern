@@ -15,10 +15,11 @@ export default function TodoList () {
 
   useEffect(() => {
     setTitle(listTitle)
+    setError("")
   }, [listTitle])
 
   async function handleEdit() {
-    setError("");
+    setError("")
     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/todo/${_id}`, {
       method: 'PATCH',
       body: JSON.stringify({newText: title}),
@@ -83,7 +84,7 @@ export default function TodoList () {
         aria-label="List title"
         // size={title.length}
         onChange={(e) => setTitle(e.target.value)}
-        onBlur={handleEdit}
+        onMouseLeave={handleEdit}
         />
       <button className="btn btn-sm btn-del mt-1" onClick={handleDelete}>Delete List</button>
       {error && <p className="text-danger">{error}</p>}
